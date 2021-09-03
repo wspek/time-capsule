@@ -1,0 +1,23 @@
+folder: /home/wspek/dev/time-capsule/media_tmp/
+
+logging:
+  outfile: /home/wspek/var/log/time-capsule.log
+  level: DEBUG
+
+email:
+  sender:
+    name: Time Capsule
+    address: subtitle.shop.test@gmail.com
+    password: H4u@Ni2e
+  mailinglist:
+    - waldospek@gmail.com
+
+resources:
+  - type: Telegram
+    connection_data:
+      api_id: 7506606
+      api_hash: 3afbd4f428986541c1c02476765a0e7a
+    download_data:
+      channels:
+        - maddogholland
+        - brechtzegtkoffiekamer
