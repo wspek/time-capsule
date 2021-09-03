@@ -1,7 +1,7 @@
 folder: /home/wspek/dev/time-capsule/media_tmp/
 
 logging:
-  outfile: /home/wspek/var/log/time-capsule.log
+  outfile: /var/log/time-capsule.log
   level: DEBUG
 
 email:
