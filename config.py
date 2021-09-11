@@ -1,6 +1,7 @@
 import yaml
+import pathlib
 
-CONFIG_FILE = 'config/config.yaml'
+CONFIG_FILE = f'{pathlib.Path(__file__).parent.resolve()}/config/config.yaml'
 
 
 def load_config():
