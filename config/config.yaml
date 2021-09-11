@@ -1,4 +1,4 @@
-folder: /home/wspek/dev/time-capsule/media_tmp/
+folder: /media/wspek/W&S_SSD/Photos & Videos/Time_Capsule_COVID
 
 logging:
   outfile: /home/wspek/var/log/time-capsule.log
