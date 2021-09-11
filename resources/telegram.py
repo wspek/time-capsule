@@ -1,6 +1,8 @@
 import os
 import logging
 from datetime import datetime, timedelta
+import pathlib
+
 
 # https://tl.telethon.dev/
 from telethon.sync import TelegramClient
@@ -33,7 +35,7 @@ class TelegramResource(Resource):
     def download(self):
         logging.info('Opening connection with Telegram client.')
 
-        with TelegramClient('timecapsule', self.connection_data['api_id'], self.connection_data['api_hash']) as client:
+        with TelegramClient(f'{pathlib.Path(__file__).parent.parent.resolve()}/timecapsule.session', self.connection_data['api_id'], self.connection_data['api_hash']) as client:
             tomorrow = datetime.now() + timedelta(days=1)
 
             logging.info(f'Retrieving all messages older than {str(tomorrow)}')
