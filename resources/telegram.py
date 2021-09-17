@@ -6,6 +6,7 @@ import pathlib
 
 # https://tl.telethon.dev/
 from telethon.sync import TelegramClient
+from telethon.errors.rpcerrorlist import FileReferenceExpiredError
 from tqdm import tqdm
 import humanize
 
@@ -50,7 +51,12 @@ class TelegramResource(Resource):
                         logging.debug(f'Attempting to download: {msg.id}')
 
                         path = os.path.join(self.folder, message_date, 'telegram', channel, f'{msg.id}')
-                        saved_path = msg.download_media(file=path)
+
+                        try:
+                            saved_path = msg.download_media(file=path)
+                        except FileReferenceExpiredError:
+                            logging.debug(f'File reference expired.')
+                            continue
 
                         if saved_path:
                             content = f'{saved_path} ({humanize.naturalsize(msg.file.size)})'
