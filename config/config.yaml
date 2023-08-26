@@ -1,4 +1,4 @@
-folder: /media/wspek/2TB/photos_video/time_capsule
+out_folder: /tmp/time_capsule
 
 logging:
   outfile: /home/wspek/var/log/time-capsule.log
