@@ -8,8 +8,8 @@ from telethon.errors.rpcerrorlist import FileReferenceExpiredError
 from tqdm import tqdm
 import humanize
 
-from resources import Resource
 from config import config
+from .resource import Resource
 
 
 logging.getLogger('telethon').setLevel(logging.WARNING)
@@ -31,7 +31,7 @@ class TelegramResource(Resource):
     def connect(self):
         raise NotImplementedError
 
-    def download(self):
+    def download_all(self):
         logging.info('Opening connection with Telegram client.')
 
         with TelegramClient('timecapsule', self.connection_data['api_id'], self.connection_data['api_hash']) as client:
@@ -45,10 +45,10 @@ class TelegramResource(Resource):
                 for i, msg in enumerate(tqdm(client.iter_messages(channel, offset_date=tomorrow))):
                     message_date = msg.date.strftime('%Y%m%d')
 
-                    if not id_already_downloaded(self.folder, message_date, channel, msg.id):
+                    if not id_already_downloaded(self.out_folder, message_date, channel, msg.id):
                         logging.debug(f'Attempting to download: {msg.id}')
 
-                        path = os.path.join(self.folder, message_date, 'telegram', channel, f'{msg.id}')
+                        path = os.path.join(self.out_folder, message_date, 'telegram', channel, f'{msg.id}')
 
                         try:
                             saved_path = msg.download_media(file=path)

@@ -3,7 +3,7 @@
 import logging
 
 from config import config
-from resources import Resource
+from resource import resources
 
 logging.basicConfig(filename=config['logging']['outfile'], level=config['logging']['level'])
 
@@ -11,10 +11,10 @@ logging.basicConfig(filename=config['logging']['outfile'], level=config['logging
 def main():
     logging.info('*** START ***')
 
-    # Iterate over config
     for cfg in config['resources']:
-        resource = Resource.create(folder=config['folder'], **cfg)
-        resource.download()
+        resource_type = cfg.pop('type')
+        resource = resources.get(resource_type)(out_folder=config['out_folder'], **cfg)
+        resource.download_all()
 
     logging.info('*** END ***')
 
