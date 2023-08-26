@@ -13,7 +13,7 @@ email:
     - waldospek@gmail.com
 
 resources:
-  - type: Telegram
+  - type: telegram
     connection_data:
       api_id: 7506606
       api_hash: 3afbd4f428986541c1c02476765a0e7a
