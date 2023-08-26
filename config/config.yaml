@@ -1,4 +1,4 @@
-folder: /media/pi/2TB1/photos_video/time_capsule
+out_folder: /media/pi/2TB1/photos_video/time_capsule
 
 logging:
   outfile: /var/log/time-capsule.log
