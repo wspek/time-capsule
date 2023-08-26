@@ -3,11 +3,15 @@
 import logging
 
 from config import config
-from resource import resources
 from reporting import Report
+from resource import resources
 
-
-logging.basicConfig(filename=config['logging']['outfile'], level=config['logging']['level'])
+logging.basicConfig(
+    filename=config['logging']['outfile'],
+    level=config['logging']['level'],
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 
 def main():
