@@ -8,7 +8,7 @@ email:
   sender:
     name: Time Capsule
     address: subtitle.shop.test@gmail.com
-    password: H4u@Ni2e
+    password: ousynrugnrpvsult
   mailinglist:
     - waldospek@gmail.com
 
@@ -20,4 +20,3 @@ resources:
     download_data:
       channels:
         - maddogholland
-        - brechtzegtkoffiekamer

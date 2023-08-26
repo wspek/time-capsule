@@ -1,5 +1,5 @@
 PyYAML==5.4.1
-yagmail==0.14.260
+yagmail==0.15.293
 humanize==3.11.0
 Telethon==1.23.0
 tqdm==4.62.0
